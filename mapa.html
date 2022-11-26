@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Mga lugar</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+</head>
+<style>
+#map {width: 1600px; height: 700px}
+</style>
+<body>
+<div id="map"></div>
+</body>
+<script>
+var map_center = [10.3392, 123.8537];
+var mapOptions = {
+  center: map_center,
+  zoom: 5.5
+}
+var map = L.map('map', mapOptions);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 12,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+// Places
+SanFernandoPampanga_latlong = [15.0255, 120.6910];
+SanFernandoPampanga_marker = L.marker(SanFernandoPampanga_latlong).addTo(map);
+
+AngelesPampanga_latlong = [15.1371, 120.5879];
+AngelesPampanga_circle = L.marker(AngelesPampanga_latlong).addTo(map);
+
+Arayat_latlong = [15.1514, 120.7728];
+Arayat_marker = L.marker(Arayat_latlong).addTo(map);
+
+Baguio_latlong = [16.4008, 120.5784];
+Baguio_circle = L.marker(Baguio_latlong).addTo(map);
+
+Japan_latlong = [35.960, 138.340];
+Japan_marker = L.marker(Japan_latlong).addTo(map);
+
+Bolinao_latlong = [16.38801, 119.89380];
+Bolinao_marker = L.marker(Bolinao_latlong).addTo(map);
+
+Puerto_Princesa_latlong = [9.720, 119.020];
+Puerto_Princesa_marker = L.marker(Puerto_Princesa_latlong).addTo(map);
+
+Cebu_latlong = [10.2447, 123.8942];
+Cebu_marker = L.marker(Cebu_latlong).addTo(map);
+
+Tokyo_latlong = [35.6082, 140.0510];
+Tokyo_marker = L.marker(Tokyo_latlong).addTo(map);
+
+California_LongBeach_latlong = [33.7694, -118.1848];
+California_LongBeach_marker = L.marker(California_LongBeach_latlong).addTo(map);
+
+var polyline_latlngs = [
+    [[17.6392, 121.7404],
+     [16.4891, 121.7481],
+     [16.4803, 121.1204],
+     [16.6347, 121.1207]
+    ],
+    [[40.78, -73.91],
+     [41.83, -87.62],
+     [32.76, -96.72]]
+];
+polyline = L.polyline(polyline_latlngs, {color: 'red'}).addTo(map);
+
+</script>
+</html>
